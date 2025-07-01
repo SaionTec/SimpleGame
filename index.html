@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pergunte um Número</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1a0883, #acb6e5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffffcc;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0f0237;
+    }
+
+    .resposta {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1> Vamos tentar encontrar o número secreto!</h1>
+    <h1>Digite um número: </h1>
+    <input type="number" id="numeroInput" placeholder="Ex: 42" />
+    <br />
+    <button onclick="mostrarNumero()">Enviar</button>
+    <div class="resposta" id="resposta"></div>
+  </div>
+
+  <script>
+    function mostrarNumero() {
+      const input = document.getElementById('numeroInput');
+      const valor = input.value;
+      const resposta = document.getElementById('resposta');
+      const numeroSecreto = 45;
+  
+      if (valor === "") {
+        resposta.innerText = "Por favor, digite um número.";
+        return;
+      }
+  
+      const numero = parseInt(valor);
+  
+      if (numero < numeroSecreto) {
+        resposta.innerText = "Tente outra vez! O número secreto é maior.";
+      } else if (numero > numeroSecreto) {
+        resposta.innerText = "Tente outra vez! O número secreto é menor.";
+      } else {
+        resposta.innerText = "🎉 Parabéns! Você acertou o número secreto!";
+      }
+    }
+  </script>
+</body>
+</html>
